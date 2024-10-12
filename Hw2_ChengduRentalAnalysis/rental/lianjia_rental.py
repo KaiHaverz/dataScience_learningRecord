@@ -4,7 +4,7 @@ import csv
 import time
 
 # 初始化CSV文件
-csv_file = open('chongqing_rent.csv', 'w', newline='', encoding='utf-8')
+csv_file = open('shanghai_rent.csv', 'w', newline='', encoding='utf-8')
 csv_writer = csv.writer(csv_file)
 csv_writer.writerow(['标题', '价格', '面积', '区域', '链接'])
 
@@ -13,7 +13,7 @@ driver = webdriver.Chrome()
 
 # 爬取多页数据
 for page in range(1, 101):  # 假设爬取前100页
-    url = f'https://cq.lianjia.com/zufang/pg{page}/'
+    url = f'https://sh.lianjia.com/zufang/pg{page}/'
     print(f'正在爬取第{page}页: {url}')
 
     driver.get(url)
@@ -42,4 +42,4 @@ csv_file.close()
 
 # 关闭WebDriver
 driver.quit()
-print('爬取完成，数据已保存到chongqing_rent.csv')
+print('爬取完成，数据已保存到shanghai_rent.csv')
